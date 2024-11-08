@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rmp_lab/cubit/calculator_cubit.dart';
+import 'package:rmp_lab/pages/history_page.dart';
 
 class CalculatorPage extends StatelessWidget {
   const CalculatorPage({super.key});
@@ -11,7 +12,18 @@ class CalculatorPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => CalculatorCubit(),
       child: Scaffold(
-        appBar: AppBar(title: const Text('Неборский Мирон Евгеньевич')),
+        appBar: AppBar(
+          title: const Text('Неборский Мирон Евгеньевич'),
+          leading: IconButton(
+            icon: const Icon(Icons.history),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const HistoryPage()),
+              );
+            },
+          ),
+        ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: BlocBuilder<CalculatorCubit, CalculatorState>(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rmp_lab/db_provider.dart';
 
 part 'calculator_state.dart';
 
@@ -56,6 +57,15 @@ class CalculatorCubit extends Cubit<CalculatorState> {
     final double bitDepth = double.parse(bitDepthController.text);
     final double duration = double.parse(durationController.text);
     double fileSize = (channels * samplingRate * bitDepth * duration) / 8 / 1024 / 1024;
+
+    DBProvider.db.addValues({
+      'fileType': fileType,
+      'channels': channels.toString(),
+      'samplingRate': samplingRateController.text,
+      'bitDepth': bitDepthController.text,
+      'duration': durationController.text,
+      'fileSize': fileSize,
+    });
 
     emit(CalculatorFileSizeState(fileSize: fileSize));
   }
