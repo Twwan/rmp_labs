@@ -38,6 +38,8 @@ dependencies:
   flutter_bloc: ^8.1.6
   sqflite: ^2.4.1
   path_provider: ^2.1.5
+  http: ^1.2.2
+  flutter_dotenv: ^5.2.1
 
 dev_dependencies:
   flutter_test:

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'pages/calculator_page.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'pages/nasa_screen.dart';
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
+void main() async {
+  await dotenv.load();
   runApp(const MyApp());
 }
 
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: CalculatorPage(),
+      debugShowCheckedModeBanner: false,
+      home: NasaScreen(),
     );
   }
 }
