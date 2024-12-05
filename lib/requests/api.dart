@@ -1,10 +1,9 @@
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 Future<Map<String, dynamic>> getNasaData() async {
-  final String apiUrl = dotenv.env['API_URL'] ?? '';
-  final String apiKey = dotenv.env['API_KEY'] ?? '';
+  const String apiUrl = 'https://api.nasa.gov/mars-photos/api/v1';
+  const String apiKey = 'eQnprvXukgfNomTanZiHT1DqLApcABzFjI350dyZ';
   const String name = 'curiosity';
   const int sol = 110;
 
